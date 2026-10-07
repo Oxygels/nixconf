@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 let
   cleaner = pkgs.writeShellScript "cleaner" ''
     #!/bin/bash
@@ -7,7 +6,6 @@ let
   '';
 in
 {
-
   programs.lf = {
     enable = true;
     keybindings = {
@@ -56,5 +54,4 @@ in
       '';
     };
   };
-
 }

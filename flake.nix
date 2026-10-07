@@ -60,7 +60,6 @@
           username = "oxy";
         };
       };
-
       packages.x86_64-linux = {
         tower-vm = self.nixosConfigurations.tower.config.system.build.vm;
         laptop-vm = self.nixosConfigurations.laptop.config.system.build.vm;
