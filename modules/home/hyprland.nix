@@ -1,5 +1,8 @@
 { ... }:
 {
+  imports = [
+    ./hyprland
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";

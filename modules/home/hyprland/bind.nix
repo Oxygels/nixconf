@@ -1,19 +1,16 @@
-{ lib, ... }:
-
+{ config, lib, ... }:
 # ----------------------------------------------------------------------
 # Keybindings
 # ----------------------------------------------------------------------
 let
-
-  terminal = "kitty";
-  fileManager = "lf";
-  launcher = "fuzzel";
-  uwsm = "uwsm app -- ";
-  lua = lib.generators.mkLuaInline;
-
+  terminal = config.vars.hyprland.terminal;
+  uwsm = config.vars.hyprland.uwsm;
+  fileManager = config.vars.hyprland.fileManager;
+  launcher = config.vars.hyprland.launcher;
+  lua = lib.mkLuaInline;
 in
 {
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland.settings = {
     bind = [
       {
         _args = [
