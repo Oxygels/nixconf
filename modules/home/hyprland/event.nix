@@ -28,9 +28,7 @@ in
           "hyprland.start"
           (lua ''
             function()
-              hl.exec_cmd("${uwsm}hyprpaper")
               hl.exec_cmd("${uwsm}waybar")
-              hl.exec_cmd("${uwsm}hyprsunset -t 4500")
               hl.exec_cmd("${uwsm}wl-paste --type text --watch cliphist store")
               hl.exec_cmd("${uwsm}wl-paste --type image --watch cliphist store")
               hl.exec_cmd("systemctl --user start hyprpolkitagent")

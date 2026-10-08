@@ -5,6 +5,9 @@
 
   hardware.graphics.enable = true;
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Defaults to true before 26.11, will be able to remove when it releases
   boot.zfs.forceImportRoot = false;
   boot.loader.systemd-boot.enable = true;
@@ -24,6 +27,8 @@
     fzf
     hexyl
     ffmpegthumbnailer # for lf
+    pavucontrol
+    wl-clipboard-rs
 
     # Hyprland tools
     hyprshutdown
@@ -40,6 +45,12 @@
     enable = true;
     withUWSM = true;
     xwayland.enable = true;
+  };
+
+  services.dunst = {
+    enable = true;
+    enableWayland = true;
+    enableX11 = false;
   };
 
   programs.steam = {

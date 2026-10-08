@@ -1,4 +1,8 @@
-{ pkgs, lazyvim, ... }:
+{
+  pkgs,
+  lazyvim,
+  ...
+}:
 {
   home.stateVersion = "26.05";
 
@@ -10,6 +14,20 @@
     ./btop.nix
     ./hyprland.nix
   ];
+
+  services.hyprsunset = {
+    enable = true;
+    settings = {
+      profile = {
+        time = "0:00";
+        temperature = 4500;
+      };
+    };
+  };
+
+  services.hyprpaper = {
+    enable = true;
+  };
 
   programs.lazyvim = {
     enable = true;
