@@ -33,7 +33,7 @@ in
       {
         _args = [
           "SUPER + A"
-          (lua ''hl.dsp.exec_cmd("${uwsm}${launcher}")'')
+          (lua ''hl.dsp.exec_cmd("${launcher}")'')
         ];
       }
       {

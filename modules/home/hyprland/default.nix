@@ -21,7 +21,7 @@
     };
     launcher = lib.mkOption {
       type = lib.types.str;
-      default = "fuzzel";
+      default = "quickshell ipc call launcher toggle";
     };
     fileManager = lib.mkOption {
       type = lib.types.str;

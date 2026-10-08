@@ -4,6 +4,17 @@
   # Window rules
   # ----------------------------------------------------------------------
   wayland.windowManager.hyprland.settings = {
+    layer_rule = [
+      {
+        name = "launcher-blur";
+        match = {
+          namespace = "launcher";
+        };
+        blur = true;
+        ignore_alpha = 0.3;
+      }
+    ];
+
     window_rule = [
       {
         name = "rhytia";

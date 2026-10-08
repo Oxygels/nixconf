@@ -64,7 +64,7 @@
       {
         leaf = "layersIn";
         enabled = true;
-        speed = 4;
+        speed = 1.5;
         bezier = "easeOutQuint";
         style = "fade";
       }
@@ -78,7 +78,7 @@
       {
         leaf = "fadeLayersIn";
         enabled = true;
-        speed = 1.79;
+        speed = 1;
         bezier = "almostLinear";
       }
       {

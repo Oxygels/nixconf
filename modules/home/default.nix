@@ -13,6 +13,7 @@
     ./vars.nix
     ./btop.nix
     ./hyprland.nix
+    ./quickshell
   ];
 
   services.hyprsunset = {
@@ -52,15 +53,6 @@
       background_opacity = 0.4;
       confirm_os_window_close = 0;
       remember_window_size = false;
-    };
-  };
-
-  programs.fuzzel = {
-    enable = true;
-    settings = {
-      main = {
-        launch-prefix = "uwsm app --";
-      };
     };
   };
 
