@@ -33,12 +33,6 @@
     xwayland.enable = true;
   };
 
-  services.dunst = {
-    enable = true;
-    enableWayland = true;
-    enableX11 = false;
-  };
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = false;

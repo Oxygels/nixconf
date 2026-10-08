@@ -13,6 +13,14 @@
         blur = true;
         ignore_alpha = 0.3;
       }
+      {
+        name = "notifications-blur";
+        match = {
+          namespace = "notifications";
+        };
+        blur = true;
+        ignore_alpha = 0.3;
+      }
     ];
 
     window_rule = [

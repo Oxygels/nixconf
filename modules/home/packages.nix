@@ -7,5 +7,6 @@
     ripgrep
     fd
     fzf
+    libnotify # notify-send
   ];
 }
