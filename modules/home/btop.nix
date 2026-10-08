@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       color_theme = "catpuccin_mocha";
-      update_ms = "500";
+      update_ms = 500;
       proc_sorting = "cpu direct";
     };
     themes = {
