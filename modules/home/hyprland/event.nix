@@ -18,9 +18,9 @@ in
 
     # `fs_prev` is a Lua variable rather than a Hyprland config option.
     # Home Manager's `_var` support emits it as a local variable.
-    fs_prev = {
-      _var = "nil";
-    };
+    # fs_prev = {
+    #   _var = "nil";
+    # };
 
     on = [
       {
