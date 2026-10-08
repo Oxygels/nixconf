@@ -29,12 +29,12 @@
         col = {
           active_border = {
             colors = [
-              "rgba(33ccffee)"
-              "rgba(00ff99ee)"
+              "rgba(cba6f7ee)" # mauve
+              "rgba(b4befeee)" # lavender
             ];
             angle = 45;
           };
-          inactive_border = "rgba(595959aa)";
+          inactive_border = "rgba(45475aaa)";
         };
         resize_on_border = false;
         allow_tearing = true;
