@@ -13,6 +13,7 @@
     ./vars.nix
     ./btop.nix
     ./hyprland.nix
+    ./packages.nix
     ./quickshell
   ];
 

@@ -16,22 +16,8 @@
 
   programs.fish.enable = true;
   environment.systemPackages = with pkgs; [
-    btop
     killall
-    fastfetch
-    trashy
     file
-    eza
-    ripgrep
-    fd
-    fzf
-    hexyl
-    ffmpegthumbnailer # for lf
-    pavucontrol
-    wl-clipboard-rs
-
-    # Hyprland tools
-    hyprshutdown
   ];
 
   services.displayManager.ly = {

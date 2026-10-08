@@ -7,6 +7,7 @@
     ./event.nix
     ./hyprlock.nix
     ./misc.nix
+    ./packages.nix
     ./window.nix
   ];
 

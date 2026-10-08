@@ -6,6 +6,13 @@ let
   '';
 in
 {
+  # Used by the previewer and keybindings below
+  home.packages = with pkgs; [
+    trashy
+    hexyl
+    ffmpegthumbnailer
+  ];
+
   programs.lf = {
     enable = true;
     keybindings = {
