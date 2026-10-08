@@ -31,8 +31,9 @@
       package = pkgs.nerd-fonts.caskaydia-cove;
     };
     settings = {
-      "background_opacity" = 0.4;
-      "confirm_os_window_close" = 0;
+      background_opacity = 0.4;
+      confirm_os_window_close = 0;
+      remember_window_size = false;
     };
   };
 
