@@ -29,6 +29,16 @@
 
   services.hyprpaper = {
     enable = true;
+    settings = {
+      splash = false;
+      wallpaper = [
+        {
+          monitor = ""; # all monitors
+          path = "${../../wallpaper/unberry_ow.jpg}";
+          fit_mode = "cover";
+        }
+      ];
+    };
   };
 
   programs.lazyvim = {
