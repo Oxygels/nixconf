@@ -6,6 +6,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lazyvim = {
       url = "github:pfassina/lazyvim-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +22,7 @@
       self,
       nixpkgs,
       home-manager,
+      disko,
       lazyvim,
       ...
     }@inputs:
@@ -31,6 +37,7 @@
           inherit system;
           specialArgs = { inherit inputs hostname username; };
           modules = [
+            disko.nixosModules.disko
             ./modules/nixos
             ./hosts/${hostname}
             home-manager.nixosModules.home-manager
