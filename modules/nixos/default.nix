@@ -44,6 +44,14 @@
     localNetworkGameTransfers.openFirewall = false;
   };
 
+  # Drop new inbound; allow replies to outbound (nftables backend)
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+    backend = "nftables";
+    allowPing = false;
+  };
+
   # VM setting when built as a VM
   virtualisation.vmVariant.virtualisation = {
     memorySize = 4096;
