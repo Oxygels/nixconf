@@ -17,6 +17,7 @@ PanelWindow {
 
   // Left
   WindowTitle {
+    maxWidth: bar.width * 0.3
     anchors { left: parent.left; leftMargin: Theme.gap; verticalCenter: parent.verticalCenter }
   }
 
