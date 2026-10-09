@@ -3,6 +3,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   networking.hostName = "laptop";
+  networking.networkmanager.enable = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -11,7 +12,7 @@
   users.users.${username} = {
     isNormalUser = true;
     initialPassword = "test";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.fish;
   };
 
