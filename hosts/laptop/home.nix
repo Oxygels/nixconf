@@ -10,6 +10,8 @@
     lazyvim.homeManagerModules.default
   ];
 
+  home.packages = [ pkgs.nvtopPackages.full ];
+
   programs.lazyvim = {
     enable = true;
     # Optional: enable LazyVim's Nix support
