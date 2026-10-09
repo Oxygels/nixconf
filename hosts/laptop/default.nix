@@ -9,6 +9,12 @@
 
   system.stateVersion = "26.05";
 
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true;
+  };
+
   users.users.${username} = {
     isNormalUser = true;
     initialPassword = "test";
