@@ -12,4 +12,8 @@ root=$(cd "$(dirname "$0")/.." && pwd)
 
 mountpoint -q /mnt || { echo "/mnt not mounted; run partition.sh first" >&2; exit 1; }
 
+# Filesystems come from disko, so skip them in the generated config.
+sudo nixos-generate-config --root /mnt --no-filesystems --show-hardware-config \
+  > "$root/hosts/$host/hardware-configuration.nix"
+
 sudo nixos-install --option extra-experimental-features "nix-command flakes" --root /mnt --flake "$root#$host"
