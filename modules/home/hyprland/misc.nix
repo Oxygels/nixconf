@@ -72,6 +72,10 @@
 
       misc = {
         render_unfocused_fps = 144;
+        # Plain background until hyprpaper has loaded the wallpaper.
+        force_default_wallpaper = 0;
+        disable_hyprland_logo = true;
+        background_color = "0xff1e1e2e";
       };
     };
   };

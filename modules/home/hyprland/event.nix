@@ -32,7 +32,8 @@ in
               hl.exec_cmd("${uwsm}wl-paste --type text --watch cliphist store")
               hl.exec_cmd("${uwsm}wl-paste --type image --watch cliphist store")
               hl.exec_cmd("systemctl --user start hyprpolkitagent")
-              hl.exec_cmd("tmux kill-server")
+              -- Start now instead of waiting for graphical-session.target.
+              hl.exec_cmd("systemctl --user start hyprpaper")
             end
           '')
         ];

@@ -8,5 +8,9 @@
     fd
     fzf
     libnotify # notify-send
+    git # required by lazygit
+    lazygit
+    openssl
+    lsof
   ];
 }
