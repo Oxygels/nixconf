@@ -14,7 +14,7 @@ lsblk "$device"
 read -r -p "Wipe $device? Type 'yes': " answer
 [ "$answer" = yes ] || exit 1
 
-sudo nix run github:nix-community/disko -- \
+sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- \
   --mode destroy,format,mount \
   "$root/modules/nixos/disk-config.nix" \
   --argstr device "$device"

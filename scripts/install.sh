@@ -12,4 +12,4 @@ root=$(cd "$(dirname "$0")/.." && pwd)
 
 mountpoint -q /mnt || { echo "/mnt not mounted; run partition.sh first" >&2; exit 1; }
 
-sudo nixos-install --root /mnt --flake "$root#$host"
+sudo nixos-install --option extra-experimental-features "nix-command flakes" --root /mnt --flake "$root#$host"
