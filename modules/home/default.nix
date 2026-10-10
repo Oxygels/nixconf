@@ -12,6 +12,7 @@
     ./fish.nix
     ./vars.nix
     ./btop.nix
+    ./theme.nix
     ./hyprland.nix
     ./packages.nix
     ./quickshell

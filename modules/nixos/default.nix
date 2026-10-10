@@ -11,6 +11,8 @@
   system.stateVersion = "26.05";
   nixpkgs.config.allowUnfree = true;
 
+  programs.dconf.enable = true;
+
   hardware.graphics.enable = true;
 
   hardware.bluetooth.enable = true;
