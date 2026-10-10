@@ -12,5 +12,9 @@
     lazygit
     openssl
     lsof
+    keepassxc
+    (discord.override {
+      commandLineArgs = "--ozone-platform=wayland --enable-features=UseOzonePlatform,WaylandWindowDecorations";
+    })
   ];
 }
