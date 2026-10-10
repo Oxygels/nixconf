@@ -21,6 +21,13 @@
   # Defaults to true before 26.11, will be able to remove when it releases
   boot.zfs.forceImportRoot = false;
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 3;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   console.keyMap = "fr";
 
