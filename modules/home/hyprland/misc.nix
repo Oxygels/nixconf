@@ -24,7 +24,12 @@
       };
       general = {
         gaps_in = 5;
-        gaps_out = "10, 20, 10, 20"; # top, right, bottom, left
+        gaps_out = {
+          top = 10;
+          right = 20;
+          bottom = 10;
+          left = 20;
+        };
         border_size = 2;
         col = {
           active_border = {
