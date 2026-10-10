@@ -10,6 +10,7 @@
     lazyvim.homeManagerModules.default
     ./lf.nix
     ./fish.nix
+    ./git.nix
     ./vars.nix
     ./btop.nix
     ./claude.nix
