@@ -29,6 +29,8 @@
     options = "--delete-older-than 30d";
   };
 
+  time.timeZone = "Europe/Berlin";
+
   console.keyMap = "fr";
 
   programs.fish.enable = true;
