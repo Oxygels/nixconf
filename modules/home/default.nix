@@ -14,7 +14,6 @@
     ./vars.nix
     ./btop.nix
     ./claude.nix
-    ./theme.nix
     ./hyprland.nix
     ./packages.nix
     ./quickshell
