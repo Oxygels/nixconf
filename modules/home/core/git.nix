@@ -1,10 +1,12 @@
+{ lib, ... }:
 {
   programs.git = {
     enable = true;
     settings = {
+      # mkDefault lets hosts override identity with a plain assignment
       user = {
-        name = "Oxy";
-        email = "39919597+Oxygels@users.noreply.github.com";
+        name = lib.mkDefault "Oxy";
+        email = lib.mkDefault "39919597+Oxygels@users.noreply.github.com";
       };
       credential.helper = "cache --timeout=3600";
       # Push tags at the same time than commits
