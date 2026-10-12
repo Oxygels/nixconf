@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  home.stateVersion = "26.05";
-
   home.packages = [ pkgs.nvtopPackages.amd ];
 
   # Disable subpixel rendering for the OLED screen

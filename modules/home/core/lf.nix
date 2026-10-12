@@ -2,6 +2,7 @@
 let
   cleaner = pkgs.writeShellScript "cleaner" ''
     #!/bin/bash
+    command -v kitty >/dev/null || exit 0
     kitty +kitten icat --clear --stdin no --silent --transfer-mode memory </dev/null >/dev/tty
   '';
 in
@@ -36,6 +37,7 @@ in
         #!/bin/bash
 
         draw_picture() {
+            command -v kitty >/dev/null || exit 0
             kitty +kitten icat --silent --stdin no --transfer-mode memory \
                 --place "''${2}x''${3}@''${4}x''${5}" "$1" </dev/null >/dev/tty
             exit 1

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   # The real disk is only needed when partitioning, see disk-config.nix.
   # Called with `{ }` so `device` always stays the placeholder here; the real
@@ -7,9 +7,6 @@
     (import ./disk-config.nix { })
     ./brave.nix
   ];
-
-  system.stateVersion = "26.05";
-  nixpkgs.config.allowUnfree = true;
 
   programs.dconf.enable = true;
 
@@ -22,22 +19,6 @@
   boot.zfs.forceImportRoot = false;
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 3;
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
-  time.timeZone = "Europe/Berlin";
-
-  console.keyMap = "fr";
-
-  programs.fish.enable = true;
-  environment.systemPackages = with pkgs; [
-    killall
-    file
-  ];
 
   services.displayManager.ly = {
     enable = true;
@@ -56,14 +37,6 @@
     enable = true;
     remotePlay.openFirewall = false;
     localNetworkGameTransfers.openFirewall = false;
-  };
-
-  # Drop new inbound; allow replies to outbound (nftables backend)
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-    backend = "nftables";
-    allowPing = false;
   };
 
   # VM setting when built as a VM

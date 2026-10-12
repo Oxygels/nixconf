@@ -1,22 +1,16 @@
+{ pkgs, ... }:
 {
-  pkgs,
-  lazyvim,
-  ...
-}:
-{
-  home.stateVersion = "26.05";
-
   imports = [
-    lazyvim.homeManagerModules.default
-    ./lf.nix
-    ./fish.nix
-    ./git.nix
-    ./vars.nix
-    ./btop.nix
-    ./claude.nix
     ./hyprland.nix
-    ./packages.nix
     ./quickshell
+  ];
+
+  home.packages = with pkgs; [
+    libnotify # notify-send
+    keepassxc
+    (discord.override {
+      commandLineArgs = "--ozone-platform=wayland --enable-features=UseOzonePlatform,WaylandWindowDecorations";
+    })
   ];
 
   services.hyprsunset = {
@@ -36,17 +30,11 @@
       wallpaper = [
         {
           monitor = ""; # all monitors
-          path = "${../../wallpaper/unberry_ow.jpg}";
+          path = "${../../../wallpaper/unberry_ow.jpg}";
           fit_mode = "cover";
         }
       ];
     };
-  };
-
-  programs.lazyvim = {
-    enable = true;
-    # Optional: enable LazyVim's Nix support
-    extras.lang.nix.enable = true;
   };
 
   programs.kitty = {
@@ -66,13 +54,6 @@
       background_opacity = 0.4;
       confirm_os_window_close = 0;
       remember_window_size = false;
-    };
-  };
-
-  programs.bat = {
-    enable = true;
-    config = {
-      theme = "Catppuccin Mocha";
     };
   };
 

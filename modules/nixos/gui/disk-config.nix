@@ -2,7 +2,7 @@
 #
 #   sudo nix run github:nix-community/disko -- \
 #     --mode destroy,format,mount \
-#     ./modules/nixos/disk-config.nix \
+#     ./modules/nixos/gui/disk-config.nix \
 #     --argstr device /dev/nvme0n1
 #   sudo nixos-install --flake .#<host>
 #

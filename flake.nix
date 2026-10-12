@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lazyvim = {
       url = "github:pfassina/lazyvim-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +28,7 @@
       nixpkgs,
       home-manager,
       disko,
+      nixos-wsl,
       lazyvim,
       ...
     }@inputs:
@@ -32,13 +38,14 @@
           hostname,
           system ? "x86_64-linux",
           username,
+          gui ? true,
+          extraModules ? [ ],
         }:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs hostname username; };
           modules = [
-            disko.nixosModules.disko
-            ./modules/nixos
+            ./modules/nixos/core
             ./hosts/${hostname}
             home-manager.nixosModules.home-manager
             {
@@ -49,11 +56,17 @@
                 inherit username hostname;
               };
               home-manager.users.${username}.imports = [
-                ./modules/home
+                ./modules/home/core
                 ./hosts/${hostname}/home.nix
-              ];
+              ]
+              ++ nixpkgs.lib.optional gui ./modules/home/gui;
             }
-          ];
+          ]
+          ++ nixpkgs.lib.optionals gui [
+            disko.nixosModules.disko
+            ./modules/nixos/gui
+          ]
+          ++ extraModules;
         };
     in
     {
@@ -65,6 +78,12 @@
         laptop = mkHost {
           hostname = "laptop";
           username = "oxy";
+        };
+        wsl = mkHost {
+          hostname = "wsl";
+          username = "oxy";
+          gui = false;
+          extraModules = [ nixos-wsl.nixosModules.default ];
         };
       };
       packages.x86_64-linux = {
