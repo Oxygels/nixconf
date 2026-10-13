@@ -18,9 +18,9 @@ in
 
     # `fs_prev` is a Lua variable rather than a Hyprland config option.
     # Home Manager's `_var` support emits it as a local variable.
-    # fs_prev = {
-    #   _var = "nil";
-    # };
+    fs_prev = {
+      _var = "nil";
+    };
 
     on = [
       {
@@ -40,32 +40,32 @@ in
       }
 
       # Chromium's bogus fullscreen/maximize event workaround.
-      # {
-      #   _args = [
-      #     "window.fullscreen"
-      #     (lua ''
-      #       function(w)
-      #         local cur = w.fullscreen
-      #         local prev = fs_prev
-      #         fs_prev = cur
-      #
-      #         if prev == 2 and cur == 0 then
-      #           hl.timer(function()
-      #             fs_prev = nil
-      #           end, { timeout = 1, type = "oneshot" })
-      #         elseif cur == 1 and fs_prev then
-      #           fs_prev = nil
-      #           hl.dispatch(hl.dsp.window.fullscreen_state({
-      #             internal = 0,
-      #             client = 0,
-      #             action = "set",
-      #             window = w,
-      #           }))
-      #         end
-      #       end
-      #     '')
-      #   ];
-      # }
+      {
+        _args = [
+          "window.fullscreen"
+          (lua ''
+            function(w)
+              local cur = w.fullscreen
+              local prev = fs_prev
+              fs_prev = cur
+
+              if prev == 2 and cur == 0 then
+                hl.timer(function()
+                  fs_prev = nil
+                end, { timeout = 1, type = "oneshot" })
+              elseif cur == 1 and fs_prev then
+                fs_prev = nil
+                hl.dispatch(hl.dsp.window.fullscreen_state({
+                  internal = 0,
+                  client = 0,
+                  action = "set",
+                  window = w,
+                }))
+              end
+            end
+          '')
+        ];
+      }
     ];
   };
 }
