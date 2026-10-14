@@ -16,6 +16,7 @@
       lf = "lfcd";
       f = "fastfetch";
       b = "btop";
+      p = "ps aux | rg -v '(ps aux|rg -)' | rg -i";
 
       # Openssl
       openssl_chain = "openssl crl2pkcs7 -nocrl -certfile /dev/stdin | openssl pkcs7 -print_certs -text -noout"; # To be piped (ex: cat)
