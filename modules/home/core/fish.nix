@@ -1,4 +1,10 @@
 { ... }: {
+  # Wraps `nix develop` / `nix shell` / `nix-shell` to keep fish
+  programs.nix-your-shell = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   programs.fish = {
     enable = true;
     shellAliases = {
