@@ -6,6 +6,7 @@
   imports = [
     (import ./disk-config.nix { })
     ./brave.nix
+    ./udev.nix
   ];
 
   programs.dconf.enable = true;
