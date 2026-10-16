@@ -19,6 +19,7 @@
   console.keyMap = "fr";
 
   programs.fish.enable = true;
+  services.udisks2.enable = true; # udisksctl + daemon
   environment.systemPackages = with pkgs; [
     killall
     file
