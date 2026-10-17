@@ -11,6 +11,7 @@
     ./btop.nix
     ./claude.nix
     ./packages.nix
+    ./ssh.nix
   ];
 
   programs.bat = {
