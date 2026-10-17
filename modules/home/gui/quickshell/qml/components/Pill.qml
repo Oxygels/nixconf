@@ -7,6 +7,7 @@ Rectangle {
   default property alias content: row.data
 
   signal clicked()
+  signal rightClicked()
   signal wheeled(int delta)
 
   color: Theme.pillBg
@@ -16,7 +17,8 @@ Rectangle {
 
   MouseArea {
     anchors.fill: parent
-    onClicked: parent.clicked()
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+    onClicked: mouse => mouse.button === Qt.RightButton ? parent.rightClicked() : parent.clicked()
     onWheel: wheel => parent.wheeled(wheel.angleDelta.y)
   }
 
