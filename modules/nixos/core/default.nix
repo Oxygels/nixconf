@@ -16,6 +16,12 @@
     options = "--delete-older-than 30d";
   };
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+  };
+
   time.timeZone = "Europe/Berlin";
 
   console.keyMap = "fr";
