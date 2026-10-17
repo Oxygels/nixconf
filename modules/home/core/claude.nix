@@ -7,6 +7,7 @@
       model = "sonnet";
       advisorModel = "opus";
       effortLevel = "medium";
+      preferredNotifChannel = "notifications_disabled";
     };
   };
 }
