@@ -7,6 +7,7 @@
 
   home.packages = with pkgs; [
     libnotify # notify-send
+    setxkbmap
     keepassxc
     (discord.override {
       commandLineArgs = "--ozone-platform=wayland --enable-features=UseOzonePlatform,WaylandWindowDecorations";

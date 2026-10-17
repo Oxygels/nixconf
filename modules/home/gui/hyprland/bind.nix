@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 # ----------------------------------------------------------------------
 # Keybindings
 # ----------------------------------------------------------------------
@@ -8,6 +8,15 @@ let
   fileManager = config.vars.hyprland.fileManager;
   launcher = config.vars.hyprland.launcher;
   lua = lib.mkLuaInline;
+
+  switchKeyboard = pkgs.writeShellScript "switch_keyboard_xwayland" ''
+    #!/bin/bash
+    if [ "$(setxkbmap -query | awk '/layout/{print $2}')" = "us" ]; then
+      setxkbmap fr
+    else
+      setxkbmap us
+    fi
+  '';
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -83,7 +92,7 @@ in
       {
         _args = [
           "ALT + twosuperior"
-          (lua ''hl.dsp.exec_cmd(".local/bin/switch_keyboard_xwayland")'')
+          (lua ''hl.dsp.exec_cmd("${switchKeyboard}")'')
         ];
       }
       {
