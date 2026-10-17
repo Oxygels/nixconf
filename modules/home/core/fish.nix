@@ -10,6 +10,7 @@
     shellAliases = {
       # External tools
       lg = "lazygit";
+      cl = "claude";
       c = "bat";
       l = "eza -l";
       ll = "eza -la";
