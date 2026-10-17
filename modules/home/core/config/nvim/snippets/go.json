@@ -1,0 +1,20 @@
+{
+  "Error check": {
+    "prefix": "ie",
+    "body": [
+      "if err != nil {",
+      "\tpanic(err)",
+      "}"
+    ],
+    "description": "if err != nil panic"
+  },
+  "Error wrap": {
+    "prefix": "iew",
+    "body": [
+      "if err != nil {",
+      "\treturn fmt.Errorf(\"${1:context}: %w\", err)",
+      "}"
+    ],
+    "description": "if err != nil, wrapped"
+  }
+}
