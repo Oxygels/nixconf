@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland
 import qs.services
 import qs.theme
 
@@ -10,9 +11,21 @@ PanelWindow {
 
   readonly property int maxVisible: 5
 
+  // A mapped layer-shell surface on a monitor blocks Hyprland's scanout/tearing
+  // path there even while empty, so always steer this window away from whichever
+  // monitor currently has a fullscreen client. If every monitor is fullscreened
+  // (including single-monitor setups), there's nowhere safe to put it, so unmap
+  // it entirely instead of blocking tearing on the only screen available.
+  function isFullscreenOn(s) {
+    const monName = Hyprland.monitorFor(s)?.name;
+    return Hyprland.toplevels.values.some(t => t.monitor?.name === monName && t.lastIpcObject.fullscreen === 2);
+  }
+  readonly property var freeScreen: Quickshell.screens.find(s => !isFullscreenOn(s))
+  screen: freeScreen ?? Quickshell.screens[0]
+
   // The surface is fixed-size and always mapped, with input limited to the cards.
   // Resizing or re-mapping the layer surface per notification caused visible glitches.
-  visible: true
+  visible: freeScreen !== undefined
   color: "transparent"
   implicitWidth: Theme.notifWidth + 2 * Theme.gap
   implicitHeight: screen?.height ?? 1000
