@@ -22,17 +22,24 @@ Singleton {
     statFile.reload();
     memFile.reload();
 
-    const c = statFile.text().split("\n")[0].split(/\s+/).slice(1).map(Number);
-    const idle = c[3] + c[4];
-    const total = c.reduce((a, b) => a + b, 0);
-    const dt = total - _lastCpu[0], di = idle - _lastCpu[1];
-    if (dt > 0) cpu = Math.round(100 * (dt - di) / dt);
-    _lastCpu = [total, idle];
+    const statLine = statFile.text().split("\n")[0];
+    if (statLine) {
+      const c = statLine.split(/\s+/).slice(1).map(Number);
+      const idle = c[3] + c[4];
+      const total = c.reduce((a, b) => a + b, 0);
+      const dt = total - _lastCpu[0], di = idle - _lastCpu[1];
+      if (dt > 0) cpu = Math.round(100 * (dt - di) / dt);
+      _lastCpu = [total, idle];
+    }
 
     const m = memFile.text();
-    const tot = parseInt(m.match(/MemTotal:\s+(\d+)/)[1]);
-    const av = parseInt(m.match(/MemAvailable:\s+(\d+)/)[1]);
-    mem = Math.round(100 * (tot - av) / tot);
+    const totMatch = m.match(/MemTotal:\s+(\d+)/);
+    const avMatch = m.match(/MemAvailable:\s+(\d+)/);
+    if (totMatch && avMatch) {
+      const tot = parseInt(totMatch[1]);
+      const av = parseInt(avMatch[1]);
+      mem = Math.round(100 * (tot - av) / tot);
+    }
   }
 
   Process {

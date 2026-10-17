@@ -5,6 +5,7 @@ import Quickshell.Hyprland
 import qs.bar
 import qs.launcher
 import qs.notifications
+import qs.osd
 import qs.services
 
 ShellRoot {
@@ -40,6 +41,9 @@ ShellRoot {
 
   // Notifications (the Notifications singleton owns the D-Bus name)
   NotificationPopups {}
+
+  // Volume OSD, shown briefly on volume change
+  VolumeOsd {}
 
   // Touch DesktopEntries at startup so the .desktop scan isn't paid on first launcher open
   readonly property int _appCount: DesktopEntries.applications.values.length
