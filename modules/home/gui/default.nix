@@ -9,6 +9,7 @@
     libnotify # notify-send
     setxkbmap
     keepassxc
+    chatterino7
     (discord.override {
       commandLineArgs = "--ozone-platform=wayland --enable-features=UseOzonePlatform,WaylandWindowDecorations";
     })
