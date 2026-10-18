@@ -19,6 +19,7 @@
 
     extraPackages = with pkgs; [
       # nix
+      statix
       nixd
       nixfmt
       # go
