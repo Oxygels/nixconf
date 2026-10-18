@@ -24,7 +24,7 @@ Rectangle {
 
   // Critical notifications stay until dismissed
   Timer {
-    interval: (card.modelData.expireTimeout > 0 ? card.modelData.expireTimeout : 5) * 1000
+    interval: card.modelData.expireTimeout > 0 ? card.modelData.expireTimeout : 5000
     running: !card.critical && card.visible
     onTriggered: card.modelData.expire()
   }
