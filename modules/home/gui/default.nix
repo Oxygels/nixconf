@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./easyeffects.nix
     ./hyprland.nix
     ./quickshell
   ];
