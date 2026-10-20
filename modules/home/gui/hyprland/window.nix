@@ -107,7 +107,6 @@
         no_blur = true;
         no_dim = true;
         opaque = true;
-        immediate = true;
       }
       {
         name = "discord";
@@ -115,6 +114,9 @@
           class = "discord";
         };
         workspace = "2";
+        opaque = true;
+        no_blur = true;
+        no_dim = true;
       }
       {
         name = "bongocat";
