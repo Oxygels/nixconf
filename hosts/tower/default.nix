@@ -1,6 +1,9 @@
 { pkgs, username, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./parsec.nix
+  ];
 
   networking.hostName = "tower";
   boot.loader.systemd-boot.enable = true;
