@@ -8,16 +8,25 @@
 
   system.stateVersion = "26.05";
 
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
   };
 
+  # Keyboard lights
+  hardware.tuxedo-drivers.enable = true;
+
   users.users.${username} = {
     isNormalUser = true;
     initialPassword = "test";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     shell = pkgs.fish;
   };
 
