@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./parsec.nix
+    ./packages.nix
   ];
 
   networking.hostName = "tower";
