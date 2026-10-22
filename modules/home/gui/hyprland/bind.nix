@@ -283,6 +283,26 @@ in
           }
         ];
       }
+      {
+        _args = [
+          "XF86KbdBrightnessUp"
+          (lua ''hl.dsp.exec_cmd("brightnessctl -d *kbd_backlight* set 10%+")'')
+          {
+            locked = true;
+            repeating = true;
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86KbdBrightnessDown"
+          (lua ''hl.dsp.exec_cmd("brightnessctl -d *kbd_backlight* set 10%-")'')
+          {
+            locked = true;
+            repeating = true;
+          }
+        ];
+      }
 
       {
         _args = [
