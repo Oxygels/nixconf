@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ./networkmanager.nix ];
+  imports = [
+    ./networkmanager.nix
+    ./security.nix
+  ];
 
   system.stateVersion = "26.05";
   nixpkgs.config.allowUnfree = true;
