@@ -11,6 +11,7 @@
     setxkbmap
     keepassxc
     chatterino7
+    jellyfin-desktop
     (discord.override {
       commandLineArgs = "--ozone-platform=wayland --enable-features=UseOzonePlatform,WaylandWindowDecorations";
     })
