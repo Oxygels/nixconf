@@ -13,6 +13,7 @@
     chatterino7
     jellyfin-desktop
     qbittorrent
+    libva-utils
     (discord.override {
       commandLineArgs = "--ozone-platform=wayland --enable-features=UseOzonePlatform,WaylandWindowDecorations";
     })
