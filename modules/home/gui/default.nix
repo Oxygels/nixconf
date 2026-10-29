@@ -12,6 +12,7 @@
     keepassxc
     chatterino7
     jellyfin-desktop
+    qbittorrent
     (discord.override {
       commandLineArgs = "--ozone-platform=wayland --enable-features=UseOzonePlatform,WaylandWindowDecorations";
     })
