@@ -2,6 +2,8 @@
 let
   blacklistedModules = [
     "ksmbd" # SMB kernel module
+    "uvcvideo" # USB webcam
+    "gspca_main" # legacy USB webcam
   ];
 in
 {
