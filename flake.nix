@@ -39,6 +39,7 @@
           system ? "x86_64-linux",
           username,
           gui ? true,
+          disk ? true,
           extraModules ? [ ],
         }:
         nixpkgs.lib.nixosSystem {
@@ -63,8 +64,13 @@
             }
           ]
           ++ nixpkgs.lib.optionals gui [
-            disko.nixosModules.disko
             ./modules/nixos/gui
+          ]
+          ++ nixpkgs.lib.optionals disk [
+            disko.nixosModules.disko
+            # Called with `{ }` so `device` stays the placeholder here; the
+            # real value comes only from `--argstr device` on the disko CLI.
+            (import ./modules/nixos/core/disk-config.nix { })
           ]
           ++ extraModules;
         };
@@ -83,6 +89,7 @@
           hostname = "wsl";
           username = "oxy";
           gui = false;
+          disk = false;
           extraModules = [ nixos-wsl.nixosModules.default ];
         };
       };

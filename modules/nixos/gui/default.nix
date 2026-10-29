@@ -1,10 +1,6 @@
 { ... }:
 {
-  # The real disk is only needed when partitioning, see disk-config.nix.
-  # Called with `{ }` so `device` always stays the placeholder here; the real
-  # value comes only from `--argstr device` on the disko CLI.
   imports = [
-    (import ./disk-config.nix { })
     ./brave.nix
     ./udev.nix
   ];

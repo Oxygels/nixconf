@@ -16,5 +16,5 @@ read -r -p "Wipe $device? Type 'yes': " answer
 
 sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- \
   --mode destroy,format,mount \
-  "$root/modules/nixos/gui/disk-config.nix" \
+  "$root/modules/nixos/core/disk-config.nix" \
   --argstr device "$device"
