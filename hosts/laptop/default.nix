@@ -17,6 +17,8 @@
     open = true;
   };
 
+  hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
+
   # Keyboard lights
   hardware.tuxedo-drivers.enable = true;
 
