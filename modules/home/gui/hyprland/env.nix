@@ -44,6 +44,14 @@
           "adwaita-dark"
         ];
       }
+      # Electron/Chromium apps read this to opt into native Wayland
+      # (--ozone-platform-hint=auto and friends) instead of XWayland.
+      {
+        _args = [
+          "NIXOS_OZONE_WL"
+          1
+        ];
+      }
     ];
   };
 }
