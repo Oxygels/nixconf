@@ -4,6 +4,7 @@
     ./easyeffects.nix
     ./hyprland.nix
     ./quickshell
+    ./unstable.nix
   ];
 
   home.packages = with pkgs; [
@@ -14,9 +15,7 @@
     jellyfin-desktop
     qbittorrent
     libva-utils
-    (discord.override {
-      commandLineArgs = "--ozone-platform=wayland --enable-features=UseOzonePlatform,WaylandWindowDecorations";
-    })
+    # discord comes from unstable; see ./unstable.nix
   ];
 
   services.hyprsunset = {
