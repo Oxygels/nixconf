@@ -2,10 +2,9 @@
 {
   home.packages = with pkgs; [
     hyprshutdown
-    wl-clipboard-rs
+    wl-clipboard
     pavucontrol
     cliphist
-    wofi
     hyprshot
     playerctl
     brightnessctl

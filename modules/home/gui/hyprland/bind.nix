@@ -98,7 +98,7 @@ in
       {
         _args = [
           "SUPER + V"
-          (lua ''hl.dsp.exec_cmd("cliphist list | wofi --dmenu | cliphist decode | wl-copy")'')
+          (lua ''hl.dsp.exec_cmd("quickshell ipc call clipboard toggle")'')
         ];
       }
 

@@ -28,10 +28,16 @@ PanelWindow {
 
   function launch(entry) {
     if (!entry) return;
-    Quickshell.execDetached({
-      command: ["uwsm", "app", "--"].concat(entry.command),
-      workingDirectory: entry.workingDirectory
-    });
+    // execDetached's object-literal overload (command + workingDirectory) fails to
+    // convert from JS to its C++ value type when called imperatively like this ("Could
+    // not convert argument 0 ... to ProcessContext"), so it silently does nothing. Only
+    // the plain string-list overload actually works; fold workingDirectory into a cd.
+    const argv = ["uwsm", "app", "--"].concat(entry.command);
+    if (entry.workingDirectory) {
+      Quickshell.execDetached(["sh", "-c", "cd -- \"$1\" && shift && exec \"$@\"", "sh", entry.workingDirectory].concat(argv));
+    } else {
+      Quickshell.execDetached(argv);
+    }
     close();
   }
 

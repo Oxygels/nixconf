@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Hyprland
 import qs.bar
+import qs.clipboard
 import qs.launcher
 import qs.notifications
 import qs.osd
@@ -38,6 +39,17 @@ ShellRoot {
   IpcHandler {
     target: "launcher"
     function toggle(): void { launcherLoader.active = !launcherLoader.active; }
+  }
+
+  // Clipboard history, created on demand: `quickshell ipc call clipboard toggle`
+  LazyLoader {
+    id: clipboardLoader
+    Clipboard { onDismissed: clipboardLoader.active = false }
+  }
+
+  IpcHandler {
+    target: "clipboard"
+    function toggle(): void { clipboardLoader.active = !clipboardLoader.active; }
   }
 
   // Notifications (the Notifications singleton owns the D-Bus name)
