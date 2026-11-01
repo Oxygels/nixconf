@@ -26,6 +26,11 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    secret = {
+      url = "git+ssh://git@github.com/Oxygels/nixconf-s.git";
+      flake = false;
+    };
   };
 
   outputs =
@@ -37,6 +42,7 @@
       nixos-wsl,
       lazyvim,
       sops-nix,
+      secret,
       ...
     }@inputs:
     let
@@ -47,6 +53,7 @@
           username,
           gui ? true,
           disk ? true,
+          secrets ? true,
           extraModules ? [ ],
         }:
         nixpkgs.lib.nixosSystem {
@@ -64,11 +71,14 @@
                 inherit username hostname;
               };
               home-manager.users.${username}.imports = [
-                sops-nix.homeManagerModules.sops
                 ./modules/home/core
                 ./hosts/${hostname}/home.nix
               ]
-              ++ nixpkgs.lib.optional gui ./modules/home/gui;
+              ++ nixpkgs.lib.optional gui ./modules/home/gui
+              ++ nixpkgs.lib.optionals secrets [
+                sops-nix.homeManagerModules.sops
+                "${secret}/home"
+              ];
             }
           ]
           ++ nixpkgs.lib.optionals gui [
@@ -98,6 +108,7 @@
           username = "oxy";
           gui = false;
           disk = false;
+          secrets = false;
           extraModules = [ nixos-wsl.nixosModules.default ];
         };
       };

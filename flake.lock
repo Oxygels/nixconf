@@ -158,7 +158,24 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "secret": "secret",
         "sops-nix": "sops-nix"
+      }
+    },
+    "secret": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793534142,
+        "narHash": "sha256-aCfxPv22a8CwHQGYajG2a3OGbVXhwkkU+w3v2/hkFlM=",
+        "ref": "refs/heads/main",
+        "rev": "5151d343f15cf32fcef5b1728a1fe6ce7bdfeead",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/Oxygels/nixconf-s.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/Oxygels/nixconf-s.git"
       }
     },
     "sops-nix": {
