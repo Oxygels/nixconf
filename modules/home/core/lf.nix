@@ -9,7 +9,7 @@ in
 {
   # Used by the previewer and keybindings below
   home.packages = with pkgs; [
-    trashy
+    trash-cli
     hexyl
     ffmpegthumbnailer
   ];
@@ -24,7 +24,7 @@ in
       "." = "set hidden!";
     };
     commands = {
-      trash = ''%trash put "$fx"'';
+      trash = ''%trash-put "$fx"'';
       mkdir = ''%mkdir "$@"'';
     };
     settings = {

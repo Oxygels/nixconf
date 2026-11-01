@@ -21,6 +21,11 @@
       url = "github:pfassina/lazyvim-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -31,6 +36,7 @@
       disko,
       nixos-wsl,
       lazyvim,
+      sops-nix,
       ...
     }@inputs:
     let
@@ -58,6 +64,7 @@
                 inherit username hostname;
               };
               home-manager.users.${username}.imports = [
+                sops-nix.homeManagerModules.sops
                 ./modules/home/core
                 ./hosts/${hostname}/home.nix
               ]
