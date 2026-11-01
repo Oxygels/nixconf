@@ -4,7 +4,7 @@
     ./easyeffects.nix
     ./hyprland.nix
     ./quickshell
-    ./unstable.nix
+    ../unstable
   ];
 
   home.packages = with pkgs; [
@@ -15,7 +15,7 @@
     jellyfin-desktop
     qbittorrent
     libva-utils
-    # discord comes from unstable; see ./unstable.nix
+    # discord comes from unstable; see ../unstable/discord.nix
   ];
 
   services.hyprsunset = {

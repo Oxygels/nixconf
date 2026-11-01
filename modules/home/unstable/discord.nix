@@ -1,16 +1,6 @@
-# Single point of contact with the nixpkgs-unstable input.
-#
-# Everything pulled from unstable lives here, each entry stating why it
-# cannot come from the pinned nixpkgs
-{ pkgs, nixpkgs-unstable, ... }:
-let
-  unstable = import nixpkgs-unstable {
-    inherit (pkgs.stdenv.hostPlatform) system;
-    config.allowUnfree = true;
-  };
-in
+{ unstable, ... }:
 {
-  home.packages = with unstable; [
+  home.packages = [
     # The pinned nixpkgs ships 1.0.159, built without the bwrap wrapper, so
     # Chromium cannot dlopen libva.so.2 and hardware video decode never
     # starts at all. The unstable build is bwrap-wrapped and its FHS layout
@@ -26,6 +16,6 @@ in
     #
     # No commandLineArgs needed: NIXOS_OZONE_WL in ../hyprland/env.nix is
     # what the wrapper reads to add the Wayland flags.
-    discord
+    unstable.discord
   ];
 }

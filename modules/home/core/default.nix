@@ -9,9 +9,9 @@
     ./git.nix
     ./vars.nix
     ./btop.nix
-    ./claude.nix
     ./packages.nix
     ./ssh.nix
+    ../unstable
   ];
 
   programs.bat = {
