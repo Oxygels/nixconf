@@ -124,6 +124,13 @@
         workspace = "2";
       }
       {
+        name = "chatterino";
+        match = {
+          class = "com.chatterino.chatterino";
+        };
+        workspace = "3";
+      }
+      {
         name = "bongocat";
         match = {
           title = "BongoCat";
