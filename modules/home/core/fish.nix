@@ -17,6 +17,8 @@
       lf = "lfcd";
       f = "fastfetch";
       b = "btop";
+      tl = "trash-list";
+      te = "trash-empty";
       p = "ps aux | rg -v '(ps aux|rg -)' | rg -i";
 
       # Openssl
