@@ -14,6 +14,17 @@ partitioning, and secrets via flags passed to a `mkHost` builder in `flake.nix`.
 - `scripts/install.sh <host>` — `nixos-install` onto a disk already mounted by `partition.sh`.
 - `nix flake lock --update-input <name>` — update one flake input (e.g. `secret`, `nixpkgs`) without bumping the rest.
 
+## Updating (7-day cooldown)
+
+`flake.nix` tracks branches, but `flake.lock` for every github: input is set to the newest commit that was public for at least 7 days, to lag behind supply-chain attacks (most are caught within days; nixpkgs committers can self-merge). **Never run plain `nix flake update` (or `--update-input`) on these; it jumps to branch head.**
+
+- `scripts/update.sh` — asks the GitHub API for the newest commit older than 7 days on each input's branch and locks it via `nix flake lock --override-input`; `flake.nix` is untouched. Inputs come from `flake.lock`; `secret` (private, ssh) is skipped. Review the `flake.lock` diff, then commit.
+- Skim `git log <old>..<new>` in nixpkgs/home-manager before committing; feasible because the stable branches move slowly.
+- Bypass for urgent security fixes: `AGE=now scripts/update.sh` (or `AGE="2 days ago"`).
+- A picked commit may not be a Hydra-evaluated channel head, so a few packages can build locally instead of coming from cache.nixos.org.
+- Not cooled: transitive inputs that do not follow `nixpkgs` (`flake-utils`, `flake-compat`, `systems`) and `secret`.
+- TODO: nixos-26.05 / release-26.05 go EOL 2026-12-31. Move to 26.11 (`nixpkgs`, `home-manager`, `nixos-wsl` URLs in `flake.nix`, then run the script).
+
 There is no test suite; `nix flake check` is the correctness gate.
 
 ## Architecture
