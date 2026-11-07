@@ -1,4 +1,7 @@
-{ ... }:
+{ pkgs, inputs, ... }:
+let
+  unstable = import inputs.nixpkgs-unstable { inherit (pkgs.stdenv.hostPlatform) system; };
+in
 {
   imports = [
     ./brave.nix
@@ -34,6 +37,7 @@
     enable = true;
     remotePlay.openFirewall = false;
     localNetworkGameTransfers.openFirewall = false;
+    extraCompatPackages = [ unstable.proton-ge-bin ];
   };
 
   # VM setting when built as a VM
