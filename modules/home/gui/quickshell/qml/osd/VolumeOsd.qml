@@ -1,7 +1,6 @@
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Hyprland
 import qs.components
 import qs.services
 import qs.theme
@@ -10,14 +9,8 @@ import qs.theme
 PanelWindow {
   id: win
 
-  // Same fullscreen-avoidance as NotificationPopups.qml: an empty layer-shell
-  // surface still blocks tearing on its monitor, so keep off any fullscreen screen.
-  function isFullscreenOn(s) {
-    const monName = Hyprland.monitorFor(s)?.name;
-    return Hyprland.toplevels.values.some(t => t.monitor?.name === monName && t.lastIpcObject.fullscreen === 2);
-  }
-  readonly property var freeScreen: Quickshell.screens.find(s => !isFullscreenOn(s))
-  screen: freeScreen ?? Quickshell.screens[0]
+  // Keep off fullscreen monitors (see Fullscreen.qml).
+  screen: Fullscreen.freeScreen ?? Quickshell.screens[0]
 
   // Ignore the initial binding as Audio connects to the real sink on startup.
   property bool ready: false
@@ -37,7 +30,7 @@ PanelWindow {
 
   Timer { id: hideTimer; interval: 1200; onTriggered: win.shown = false }
 
-  visible: freeScreen !== undefined && shown
+  visible: Fullscreen.freeScreen !== undefined && shown
   color: "transparent"
   implicitWidth: 240
   implicitHeight: Theme.pillHeight + 2 * Theme.gap
