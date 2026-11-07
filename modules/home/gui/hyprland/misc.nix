@@ -76,7 +76,7 @@
       };
 
       misc = {
-        render_unfocused_fps = 144;
+        render_unfocused_fps = 120;
         # Plain background until hyprpaper has loaded the wallpaper.
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;

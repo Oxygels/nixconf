@@ -8,6 +8,8 @@
     package = null;
     portalPackage = null;
     configType = "lua";
+    # uwsm owns the session; hyprland-session.target would stop graphical-session.target.
+    systemd.enable = false;
 
     settings = {
 
