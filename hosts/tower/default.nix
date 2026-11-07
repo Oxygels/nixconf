@@ -8,6 +8,8 @@
   networking.hostName = "tower";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # test: latest mainline kernel instead of default LTS
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   system.stateVersion = "26.05";
 
