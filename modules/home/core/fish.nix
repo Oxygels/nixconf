@@ -11,6 +11,7 @@
       # External tools
       lg = "lazygit";
       cl = "claude";
+      oc = "opencode";
       c = "bat";
       l = "eza -l";
       ll = "eza -la";

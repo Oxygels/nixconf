@@ -8,6 +8,7 @@
     ./discord.nix
     ./claude-code.nix
     ./jellyfin-desktop.nix
+    ./opencode.nix
   ];
 
   _module.args.unstable = import nixpkgs-unstable {
