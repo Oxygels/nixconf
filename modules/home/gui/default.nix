@@ -12,7 +12,7 @@
     setxkbmap
     keepassxc
     chatterino7
-    jellyfin-desktop
+    # jellyfin-desktop comes from unstable; see ../unstable/jellyfin-desktop.nix
     qbittorrent
     libva-utils
     # discord comes from unstable; see ../unstable/discord.nix

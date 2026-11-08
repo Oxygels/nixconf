@@ -7,6 +7,7 @@
   imports = [
     ./discord.nix
     ./claude-code.nix
+    ./jellyfin-desktop.nix
   ];
 
   _module.args.unstable = import nixpkgs-unstable {
