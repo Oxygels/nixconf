@@ -2,6 +2,7 @@
 {
   imports = [
     ./easyeffects.nix
+    ./firefox.nix
     ./hyprland.nix
     ./quickshell
     ../unstable
@@ -78,16 +79,6 @@
       # gpu-context=wayland # For iGPU usage
       save-position-on-quit = true;
     };
-  };
-
-  programs.chromium = {
-    enable = true;
-    package = pkgs.brave;
-    commandLineArgs = [
-      "--ozone-platform=wayland"
-      "--enable-features=UseOzonePlatform,TouchpadOverscrollHistoryNavigation"
-      "--disable-features=HardwareMediaKeyHandling" # To stop bluetooth headphones to try to interact with videos
-    ];
   };
 
   services.pipewire = {
