@@ -11,6 +11,13 @@
   # test: latest mainline kernel instead of default LTS
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Prefer the in-kernel `ntfs` driver (ex-ntfsplus) over ntfs3.
+  # Needs kernel >= 7.1 (older `ntfs` is the legacy driver), hence tower only.
+  services.udisks2.settings."mount_options.conf".defaults = {
+    ntfs_drivers = "ntfs";
+    "ntfs:ntfs_defaults" = "uid=$UID,gid=$GID";
+  };
+
   system.stateVersion = "26.05";
 
   fileSystems."/mnt/games" = {
