@@ -2,11 +2,9 @@
   inputs = {
     # Supply-chain cooldown: scripts/update.sh locks
     # to commits >= 7 days old. Do not run a plain `nix flake update` on them.
-    # TODO: move to 26.11 before 26.05 goes EOL (2026-12-31).
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -16,7 +14,7 @@
     };
 
     nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL/release-26.05";
+      url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

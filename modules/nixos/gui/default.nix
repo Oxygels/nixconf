@@ -1,7 +1,4 @@
-{ pkgs, inputs, ... }:
-let
-  unstable = import inputs.nixpkgs-unstable { inherit (pkgs.stdenv.hostPlatform) system; };
-in
+{ pkgs, ... }:
 {
   imports = [
     ./udev.nix
@@ -14,8 +11,6 @@ in
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  # Defaults to true before 26.11, will be able to remove when it releases
-  boot.zfs.forceImportRoot = false;
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 3;
 
@@ -36,7 +31,7 @@ in
     enable = true;
     remotePlay.openFirewall = false;
     localNetworkGameTransfers.openFirewall = false;
-    extraCompatPackages = [ unstable.proton-ge-bin ];
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
 
   # VM setting when built as a VM

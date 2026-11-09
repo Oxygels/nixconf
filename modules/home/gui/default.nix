@@ -5,7 +5,8 @@
     ./firefox.nix
     ./hyprland.nix
     ./quickshell
-    ../unstable
+    ./discord.nix
+    ./jellyfin-desktop.nix
   ];
 
   home.packages = with pkgs; [
@@ -13,10 +14,8 @@
     setxkbmap
     keepassxc
     chatterino7
-    # jellyfin-desktop comes from unstable; see ../unstable/jellyfin-desktop.nix
     qbittorrent
     libva-utils
-    # discord comes from unstable; see ../unstable/discord.nix
   ];
 
   services.hyprsunset = {

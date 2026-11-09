@@ -11,7 +11,8 @@
     ./btop.nix
     ./packages.nix
     ./ssh.nix
-    ../unstable
+    ./claude-code.nix
+    ./opencode.nix
   ];
 
   programs.bat = {
