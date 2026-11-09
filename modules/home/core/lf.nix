@@ -30,6 +30,7 @@ in
     settings = {
       drawbox = true;
       period = 2;
+      icons = true;
       "cleaner" = "${cleaner}";
     };
     previewer = {
@@ -63,4 +64,7 @@ in
       '';
     };
   };
+
+  # Icons read by lf when the `icons` setting is enabled (./config/lf/icons)
+  xdg.configFile."lf/icons".source = ./config/lf/icons;
 }
