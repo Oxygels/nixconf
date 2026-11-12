@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./brave.nix
     ./udev.nix
   ];
 
