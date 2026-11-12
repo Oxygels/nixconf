@@ -36,6 +36,14 @@
       df = "df -Th";
     };
     functions = {
+      nixdiff = ''
+        # Diff current system against a previous generation (default: 1 back, 2 = 2 back, ...)
+        set -l gen 2
+        if set -q argv[1]
+          set gen (math $argv[1] + 1)
+        end
+        nix store diff-closures (ls -t1d /nix/var/nix/profiles/system-*-link | head -$gen | tail -1) /run/current-system
+      '';
       lfcd = ''
         # Terminal file manager (changing directory on exit)
         # `command` is needed in case `lfcd` is aliased to `lf`.
