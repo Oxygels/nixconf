@@ -13,5 +13,6 @@
     RestoreOnStartup = 4; # open specific URLs
     RestoreOnStartupURLs = [ "https://www.google.com" ];
     PasswordManagerEnabled = false;
+    DefaultNotificationsSetting = 1; # block all site notification requests
   };
 }
