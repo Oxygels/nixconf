@@ -9,6 +9,11 @@
 
   hardware.graphics.enable = true;
 
+  # ntsync kernel driver: Wine/Proton sync primitives (lower latency than esync/fsync).
+  # Device node is 0666 by default, so no udev rule needed.
+  # TODO: hardware.ntsync.enable once PR #516311 lands.
+  boot.kernelModules = [ "ntsync" ];
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
