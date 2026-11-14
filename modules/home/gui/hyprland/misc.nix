@@ -75,6 +75,10 @@
         preserve_split = true;
       };
 
+      render = {
+        cm_auto_hdr = false;
+      };
+
       misc = {
         render_unfocused_fps = 120;
         # Plain background until hyprpaper has loaded the wallpaper.
