@@ -4,7 +4,7 @@
 
   imports = [
     ./lf.nix
-    ./lazyvim.nix
+    ./neovim.nix
     ./fish.nix
     ./git.nix
     ./vars.nix
