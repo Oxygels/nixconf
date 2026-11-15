@@ -32,7 +32,7 @@
       se = "sudoedit";
       tarc = "tar -czf";
       tarx = "tar -xf";
-      lsof = "lsof +D"; # Recursive lookup
+      lsofd = "lsof +D"; # Recursive lookup
       df = "df -Th";
     };
     functions = {
