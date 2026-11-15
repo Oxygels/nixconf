@@ -8,6 +8,8 @@
   system.stateVersion = "26.05";
   nixpkgs.config.allowUnfree = true;
 
+  boot.tmp.useTmpfs = true;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
