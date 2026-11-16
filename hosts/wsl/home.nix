@@ -1,5 +1,11 @@
 { ... }:
 {
+  programs.fish.interactiveShellInit = ''
+    if status is-interactive; and not set -q TMUX
+      exec tmux new-session -A -s main
+    end
+  '';
+
   programs.tmux = {
     enable = true;
     terminal = "tmux-256color";
