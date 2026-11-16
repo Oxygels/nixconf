@@ -8,4 +8,9 @@
   system.stateVersion = "26.05";
 
   users.users.${username}.shell = pkgs.fish;
+
+  networking.networkmanager = {
+    enable = false;
+  };
+
 }
