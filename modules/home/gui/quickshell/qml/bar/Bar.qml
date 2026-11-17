@@ -42,6 +42,7 @@ PanelWindow {
     Stat { icon: ""; value: Stats.mem + "%" }
     Stat { visible: Stats.gpu >= 0; icon: ""; value: Stats.gpu + "%" }
     NetworkSpeed {}
+    BatteryIndicator {}
     Volume {}
   }
 }
