@@ -36,6 +36,14 @@
       df = "df -Th";
     };
     functions = {
+      ns = ''
+        # Shell with nixpkgs packages (ex: ns python3 jq)
+        set -l pkgs
+        for p in $argv
+          set -a pkgs nixpkgs#$p
+        end
+        nix shell $pkgs
+      '';
       nixdiff = ''
         # Diff current system against a previous generation (default: 1 back, 2 = 2 back, ...)
         set -l gen 2
