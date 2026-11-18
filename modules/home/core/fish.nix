@@ -42,7 +42,7 @@
         for p in $argv
           set -a pkgs nixpkgs#$p
         end
-        nix shell $pkgs
+        nix shell -s NIX_SHELL $argv[1] $pkgs
       '';
       nixdiff = ''
         # Diff current system against a previous generation (default: 1 back, 2 = 2 back, ...)
@@ -61,6 +61,10 @@
     };
     shellInit = ''
       fish_config theme choose catppuccin-mocha --color-theme=dark
+      # Marks shells started by ns for use in the prompt
+      if set -q NIX_SHELL
+        set -gx SHELL_PROMPT_SUFFIX (set_color yellow)"[$NIX_SHELL] "(set_color normal)
+      end
     '';
   };
 }
