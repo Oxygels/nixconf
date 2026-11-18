@@ -9,7 +9,7 @@ partitioning, and secrets via flags passed to a `mkHost` builder in `flake.nix`.
 ## Commands
 
 - `nix flake check --no-build` — evaluate all `nixosConfigurations` and `packages` outputs without building. Use this after any change to `flake.nix` or modules.
-- `scripts/switch.sh [host]` — regenerate hardware config and `nixos-rebuild switch --flake .#<host>` (defaults to current hostname). Requires sudo; only run when explicitly asked.
+- `scripts/switch.sh [host]` — regenerate hardware config and `nh os switch . -H <host>` (defaults to current hostname). nh elevates itself, so don't run it under sudo; only run when explicitly asked.
 - `scripts/partition.sh /dev/xxx` — disko partition/format/mount. **Destroys the target disk.** Only for fresh installs, with explicit user confirmation.
 - `scripts/install.sh <host>` — `nixos-install` onto a disk already mounted by `partition.sh`.
 - `nix flake lock --update-input <name>` — update one flake input (e.g. `secret`, `nixpkgs`) without bumping the rest.
