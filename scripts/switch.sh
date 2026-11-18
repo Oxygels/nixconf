@@ -9,4 +9,4 @@ root=$(cd "$(dirname "$0")/.." && pwd)
 sudo nixos-generate-config --no-filesystems --show-hardware-config \
   > "$root/hosts/$host/hardware-configuration.nix"
 
-sudo nixos-rebuild switch --option extra-experimental-features "nix-command flakes" --flake "$root#$host"
+nh os switch "$root" -H "$host"
