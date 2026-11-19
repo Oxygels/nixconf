@@ -4,7 +4,6 @@
 
   wsl.enable = true;
   wsl.defaultUser = username;
-  wsl.wslConf.network.generateResolvConf = false;
 
   system.stateVersion = "26.05";
 
