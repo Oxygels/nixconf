@@ -15,3 +15,8 @@
 - Do not ask questions with a sensible default. Pick it and say so.
 - Do not spawn subagents unless asked.
 - Never commit or push. The user commits manually.
+
+# System
+
+- Nix OS, so packages are defined in the config
+- If you need something not installed, ask to use nix-shell
