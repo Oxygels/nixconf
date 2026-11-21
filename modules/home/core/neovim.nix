@@ -31,7 +31,9 @@ let
     "python"
     "query"
     "regex"
+    "ron"
     "rst"
+    "rust"
     "toml"
     "tsx"
     "typescript"
@@ -45,8 +47,7 @@ let
     mkdir -p $out
     ${lib.concatStringsSep "\n" (
       map (
-        lang:
-        "ln -s ${pkgs.vimPlugins.nvim-treesitter-parsers.${lang}}/parser/${lang}.so $out/${lang}.so"
+        lang: "ln -s ${pkgs.vimPlugins.nvim-treesitter-parsers.${lang}}/parser/${lang}.so $out/${lang}.so"
       ) parserLangs
     )}
   '';
@@ -73,6 +74,11 @@ in
       delve
       gomodifytags
       impl
+      # rust
+      cargo
+      rust-analyzer
+      rustfmt
+      clippy
       # python
       python3
       basedpyright
