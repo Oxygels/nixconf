@@ -8,4 +8,6 @@
       theme.name = "catppuccin";
     };
   };
+
+  xdg.configFile."opencode/AGENTS.md".source = ./opencode/AGENTS.md;
 }
