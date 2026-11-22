@@ -91,6 +91,16 @@
 
   services.pipewire = {
     enable = true;
+    clientConfigs."99-rt" = {
+      # rtkit caps RLIMIT_RTTIME at 200ms; when EasyEffects' RT audio thread
+      # burns more than that during stream resets (e.g. YouTube seek) the
+      # kernel SIGKILLs it. Raise the client-side RT time budget to match
+      # security.rtkit.args below (still clamped by rtkit's RTTimeUSecMax).
+      "module.rt.args" = {
+        "rt.time.soft" = 2000000;
+        "rt.time.hard" = 2000000;
+      };
+    };
     wireplumber = {
       enable = true;
       configs.disable-mic-profile = {

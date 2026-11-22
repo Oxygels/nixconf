@@ -17,6 +17,11 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # rtkit defaults to a 200ms RTTIME budget; EasyEffects gets SIGKILLed when
+  # its realtime audio thread exceeds it during stream resets. See the
+  # matching module.rt.args in modules/home/gui/default.nix.
+  security.rtkit.args = [ "--rttime-usec-max=2000000" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 3;
 
