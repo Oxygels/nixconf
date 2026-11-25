@@ -85,6 +85,7 @@
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;
         background_color = "0xff1e1e2e";
+        vrr = 3;
       };
     };
   };
