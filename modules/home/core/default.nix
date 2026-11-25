@@ -11,7 +11,6 @@
     ./btop.nix
     ./packages.nix
     ./ssh.nix
-    ./claude-code.nix
     ./opencode.nix
   ];
 
