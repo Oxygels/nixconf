@@ -49,7 +49,6 @@
         match = {
           fullscreen = true;
         };
-        content = "game";
         no_blur = true;
         no_anim = true;
         no_dim = true;
