@@ -10,7 +10,7 @@
 set -euo pipefail
 
 AGE="${AGE:-7 days ago}"
-SKIP=(secret) # inputs deliberately not cooled (own private repo)
+SKIP=(secret nixconf-s-wsl) # inputs deliberately not cooled (own private repo)
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 until=$(date -u -d "$AGE" +%Y-%m-%dT%H:%M:%SZ)
 
