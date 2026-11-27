@@ -7,6 +7,7 @@
     cli = {
       session.sidebar = "auto";
       theme.name = "catppuccin";
+      diffs.source = "turn";
     };
   };
 }
