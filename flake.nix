@@ -27,6 +27,11 @@
       url = "git+ssh://git@github.com/Oxygels/nixconf-s.git";
       flake = false;
     };
+
+    nixconf-s-wsl = {
+      url = "git+ssh://git@github.com/Oxygels/nixconf-s-wsl.git";
+      flake = false;
+    };
   };
 
   outputs =
@@ -38,6 +43,7 @@
       nixos-wsl,
       sops-nix,
       secret,
+      nixconf-s-wsl,
       ...
     }@inputs:
     let
@@ -104,7 +110,10 @@
           gui = false;
           disk = false;
           secrets = false;
-          extraModules = [ nixos-wsl.nixosModules.default ];
+          extraModules = [
+            nixos-wsl.nixosModules.default
+            "${nixconf-s-wsl}"
+          ];
         };
       };
       packages.x86_64-linux = {

@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794328522,
-        "narHash": "sha256-h2BYMW4nTFpIqnMd8gwAPFmJAp/1wWLQ6vT0NfL5qt4=",
+        "lastModified": 1795168368,
+        "narHash": "sha256-D35n2Q2v1KrlF9LS/pFl8Z3EBMJW6qvPw5q4HMbXXLg=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "1dd30c29c88d99ce295f15e27f93c49bc5fbae07",
+        "rev": "44761d4f745b95e037458a0e57133c5700c8e320",
         "type": "github"
       },
       "original": {
@@ -56,6 +56,22 @@
         "type": "github"
       }
     },
+    "nixconf-s-wsl": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795787736,
+        "narHash": "sha256-oX4XYgXvcBcWPbcfP9VWCJ5zM6POAaTzPCET6I/3Vm8=",
+        "ref": "refs/heads/main",
+        "rev": "e3f534d7ef3acc17c6418a04ec4eb1f345f35d24",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/Oxygels/nixconf-s-wsl.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/Oxygels/nixconf-s-wsl.git"
+      }
+    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -79,11 +95,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794968395,
-        "narHash": "sha256-gpdKM65p1X1/TfCRhhe6IQsKZj/JWjVnhiu76BtMNTc=",
+        "lastModified": 1795182720,
+        "narHash": "sha256-/VqD10J0RlusK8zuckbTV/0qQEdimtEFYeu1sTSX/uM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "91047101b994c002a3aa0c30273ae3f1ebe550c3",
+        "rev": "661c47520acef1bafe8a1ef9989412fa97a45384",
         "type": "github"
       },
       "original": {
@@ -97,6 +113,7 @@
       "inputs": {
         "disko": "disko",
         "home-manager": "home-manager",
+        "nixconf-s-wsl": "nixconf-s-wsl",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "secret": "secret",
