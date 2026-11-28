@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./networkmanager.nix
@@ -25,6 +25,13 @@
     enable = true;
     algorithm = "zstd";
     memoryPercent = 50;
+  };
+
+  systemd.oomd = {
+    enable = true;
+    enableRootSlice = lib.mkDefault false;
+    enableSystemSlice = lib.mkDefault false;
+    enableUserSlices = lib.mkDefault true;
   };
 
   time.timeZone = "Europe/Berlin";
